@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace SCI0
@@ -23,11 +22,7 @@ namespace SCI0
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'sCIDataSet2.UnidadMedida' Puede moverla o quitarla según sea necesario.
-            this.unidadMedidaTableAdapter.Fill(this.sCIDataSet2.UnidadMedida);
-            // TODO: esta línea de código carga datos en la tabla 'sCIDataSet2.Areas' Puede moverla o quitarla según sea necesario.
-            this.areasTableAdapter.Fill(this.sCIDataSet2.Areas);
-            // TODO: esta línea de código carga datos en la tabla 'sCIDataSet.Inventario' Puede moverla o quitarla según sea necesario.
+            
             this.inventarioTableAdapter.Fill(this.sCIDataSet.Inventario);
 
             this.CargaDatos();
@@ -36,13 +31,7 @@ namespace SCI0
         private void CargaDatos()
         {
             try
-            {
-                //this.vInventarioAMTTableAdapter.Fill(this.sCIDataSet1.vInventarioAMT);
-                this.vInventarioLBCTableAdapter.Fill(this.sCIDataSet1.vInventarioLBC);
-                this.vInventarioSGRTableAdapter.Fill(this.sCIDataSet1.vInventarioSGR);
-                this.vInventarioMTNTableAdapter.Fill(this.sCIDataSet1.vInventarioMTN);
-                this.vInventarioITNTableAdapter.Fill(this.sCIDataSet1.vInventarioITN);
-                this.vInventarioCISTableAdapter.Fill(this.sCIDataSet.vInventarioCIS);
+            {                
                 this.inventarioTableAdapter.Fill(this.sCIDataSet.Inventario);
                 this.ModoEdicion("Lectura");
 
@@ -59,9 +48,10 @@ namespace SCI0
             switch (modo)
             {
                 case "Lectura":
-                    this.btnModificarAMT.Enabled = true;
-                    this.btnGuardarAMT.Enabled =false;
-                    this.btnCancelarAMT.Enabled = false;        this.cbxArea.Enabled = false;
+                    this.BtnEditar.Enabled = true;
+                    this.btnGuardar.Enabled =false;
+                    this.btnCancelar.Enabled = false;        
+                    this.cbxArea.Enabled = false;
                     this.tbxArticulo.Enabled = false;
                     this.tbxDescripcion.Enabled = false;
                     this.cbxMedida.Enabled = false;
@@ -71,9 +61,9 @@ namespace SCI0
                     
                     break;
                 case "Modificar":
-                    this.btnModificarAMT.Enabled = false;
-                    this.btnGuardarAMT.Enabled = true;
-                    this.btnCancelarAMT.Enabled = true;
+                    this.BtnEditar.Enabled = false;
+                    this.btnGuardar.Enabled = true;
+                    this.btnCancelar.Enabled = true;
                     this.cbxArea.Enabled = true;
                     this.tbxArticulo.Enabled = true;
                     this.tbxDescripcion.Enabled = true;
@@ -89,37 +79,6 @@ namespace SCI0
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (this.Valida())
-                {
-                    int id = int.Parse(this.tbxId.Text);
-                    this.inventarioTableAdapter.Update(this.cbxArea.Text,
-                   this.tbxArticulo.Text, this.tbxDescripcion.Text,
-                   Convert.ToInt32(this.cbxMedida.Text),
-                   Convert.ToInt32(this.numericoNormal.Value),
-                   Convert.ToInt32(this.numericoCritico.Value),
-                   id);
-                    MessageBox.Show("Los datos fueron actualizados correctamente", "Operación exitosa");
-                    this.CargaDatos();
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al Actualizar los campos: " + ex.Message.ToString());
-                
-            }
-        }
-
-        private void btnModificarAMT_Click(object sender, EventArgs e)
-        {
-            this.ModoEdicion("Modificar");
-            
         }
 
         private void btnCancelarAMT_Click(object sender, EventArgs e)
@@ -152,9 +111,67 @@ namespace SCI0
 
         }
 
-        private void cantidadCriticaNumericUpDown_ValueChanged(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
+            this.ModoEdicion("Modificar");
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.Valida())
+                {
+                    int id = int.Parse(this.tbxId.Text);
+                    this.inventarioTableAdapter.Update(this.cbxArea.Text,
+                   this.tbxArticulo.Text, this.tbxDescripcion.Text,
+                   Convert.ToInt32(this.cbxMedida.Text),
+                   Convert.ToInt32(this.numericoNormal.Value),
+                   Convert.ToInt32(this.numericoCritico.Value),
+                   id);
+                    MessageBox.Show("Los datos fueron actualizados correctamente", "Operación exitosa");
+                    this.CargaDatos();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Actualizar los campos: " + ex.Message.ToString());
+
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.CargaDatos();
+        }
+
+        private void coordinacionToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.inventarioTableAdapter.Coordinacion(this.sCIDataSet.Inventario);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
+
+        private void intendenciaToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.inventarioTableAdapter.Intendencia(this.sCIDataSet.Inventario);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+       
     }
 }

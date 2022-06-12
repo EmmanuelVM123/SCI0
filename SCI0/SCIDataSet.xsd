@@ -118,6 +118,15 @@ SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida
               <Mapping SourceColumn="CantidadCritica" DataSetColumn="CantidadCritica" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="ConexiónSCI (Settings)" DbObjectName="SCI.dbo.Inventario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Coordinacion" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Coordinacion" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Coordinacion">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida, CantidadNormal, CantidadCritica FROM dbo.Inventario
+Where IdArea = 'CIS'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ConexiónSCI (Settings)" DbObjectName="SCI.dbo.Inventario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
@@ -131,6 +140,15 @@ SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida, CantidadNormal, CantidadCritica FROM dbo.Inventario
 WHERE IdArea = 'LBC'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConexiónSCI (Settings)" DbObjectName="SCI.dbo.Inventario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Intendencia" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Intendencia" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="Intendencia">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida, CantidadNormal, CantidadCritica FROM dbo.Inventario
+WHERE IdArea = 'ITN'</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -671,8 +689,8 @@ FROM            vInventarioLBC</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Inventario_Areas" msdata:parent="Areas" msdata:child="Inventario" msdata:parentkey="IdArea" msdata:childkey="IdArea" msprop:Generator_UserParentTable="Areas" msprop:Generator_UserChildTable="Inventario" msprop:Generator_RelationVarName="relationFK_Inventario_Areas" msprop:Generator_ChildPropName="GetInventarioRows" msprop:Generator_ParentPropName="AreasRow" msprop:Generator_UserRelationName="FK_Inventario_Areas" />
-      <msdata:Relationship name="FK_Inventario_UnidadMedida" msdata:parent="UnidadMedida" msdata:child="Inventario" msdata:parentkey="IdUnidadMedida" msdata:childkey="IdUnidadMedida" msprop:Generator_UserParentTable="UnidadMedida" msprop:Generator_UserChildTable="Inventario" msprop:Generator_RelationVarName="relationFK_Inventario_UnidadMedida" msprop:Generator_ChildPropName="GetInventarioRows" msprop:Generator_UserRelationName="FK_Inventario_UnidadMedida" msprop:Generator_ParentPropName="UnidadMedidaRow" />
+      <msdata:Relationship name="FK_Inventario_Areas" msdata:parent="Areas" msdata:child="Inventario" msdata:parentkey="IdArea" msdata:childkey="IdArea" msprop:Generator_UserParentTable="Areas" msprop:Generator_UserChildTable="Inventario" msprop:Generator_RelationVarName="relationFK_Inventario_Areas" msprop:Generator_ChildPropName="GetInventarioRows" msprop:Generator_UserRelationName="FK_Inventario_Areas" msprop:Generator_ParentPropName="AreasRow" />
+      <msdata:Relationship name="FK_Inventario_UnidadMedida" msdata:parent="UnidadMedida" msdata:child="Inventario" msdata:parentkey="IdUnidadMedida" msdata:childkey="IdUnidadMedida" msprop:Generator_UserParentTable="UnidadMedida" msprop:Generator_UserChildTable="Inventario" msprop:Generator_RelationVarName="relationFK_Inventario_UnidadMedida" msprop:Generator_ChildPropName="GetInventarioRows" msprop:Generator_ParentPropName="UnidadMedidaRow" msprop:Generator_UserRelationName="FK_Inventario_UnidadMedida" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
