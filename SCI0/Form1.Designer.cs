@@ -38,6 +38,12 @@
             System.Windows.Forms.Label idArticuloLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelTitulo = new System.Windows.Forms.Panel();
+            this.btnAMT = new System.Windows.Forms.Button();
+            this.btnLBC = new System.Windows.Forms.Button();
+            this.btnSGR = new System.Windows.Forms.Button();
+            this.btnMTN = new System.Windows.Forms.Button();
+            this.btnCIS = new System.Windows.Forms.Button();
+            this.btnITN = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabInventario = new System.Windows.Forms.TabControl();
@@ -61,9 +67,7 @@
             this.inventarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.areasTableAdapter = new SCI0.SCIDataSetTableAdapters.AreasTableAdapter();
             this.unidadMedidaTableAdapter = new SCI0.SCIDataSetTableAdapters.UnidadMedidaTableAdapter();
-            this.intendenciaToolStrip = new System.Windows.Forms.ToolStrip();
             this.paneBtnlAMT = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
@@ -162,6 +166,12 @@
             // 
             // panelTitulo
             // 
+            this.panelTitulo.Controls.Add(this.btnAMT);
+            this.panelTitulo.Controls.Add(this.btnLBC);
+            this.panelTitulo.Controls.Add(this.btnSGR);
+            this.panelTitulo.Controls.Add(this.btnMTN);
+            this.panelTitulo.Controls.Add(this.btnCIS);
+            this.panelTitulo.Controls.Add(this.btnITN);
             this.panelTitulo.Controls.Add(this.label1);
             this.panelTitulo.Controls.Add(this.pictureBox1);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -169,6 +179,66 @@
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(1183, 25);
             this.panelTitulo.TabIndex = 0;
+            // 
+            // btnAMT
+            // 
+            this.btnAMT.Location = new System.Drawing.Point(915, -1);
+            this.btnAMT.Name = "btnAMT";
+            this.btnAMT.Size = new System.Drawing.Size(144, 23);
+            this.btnAMT.TabIndex = 26;
+            this.btnAMT.Text = "Archivo muerto";
+            this.btnAMT.UseVisualStyleBackColor = true;
+            this.btnAMT.MouseHover += new System.EventHandler(this.aMTToolStripButton_Click);
+            // 
+            // btnLBC
+            // 
+            this.btnLBC.Location = new System.Drawing.Point(765, 0);
+            this.btnLBC.Name = "btnLBC";
+            this.btnLBC.Size = new System.Drawing.Size(144, 23);
+            this.btnLBC.TabIndex = 25;
+            this.btnLBC.Text = "Laboratorio de cómputo";
+            this.btnLBC.UseVisualStyleBackColor = true;
+            this.btnLBC.Click += new System.EventHandler(this.lBCToolStripButton_Click);
+            // 
+            // btnSGR
+            // 
+            this.btnSGR.Location = new System.Drawing.Point(640, 0);
+            this.btnSGR.Name = "btnSGR";
+            this.btnSGR.Size = new System.Drawing.Size(119, 23);
+            this.btnSGR.TabIndex = 24;
+            this.btnSGR.Text = "Servicios generales";
+            this.btnSGR.UseVisualStyleBackColor = true;
+            this.btnSGR.Click += new System.EventHandler(this.sGRToolStripButton_Click);
+            // 
+            // btnMTN
+            // 
+            this.btnMTN.Location = new System.Drawing.Point(544, 0);
+            this.btnMTN.Name = "btnMTN";
+            this.btnMTN.Size = new System.Drawing.Size(90, 23);
+            this.btnMTN.TabIndex = 23;
+            this.btnMTN.Text = "Mantenimiento";
+            this.btnMTN.UseVisualStyleBackColor = true;
+            this.btnMTN.Click += new System.EventHandler(this.mNTToolStripButton_Click);
+            // 
+            // btnCIS
+            // 
+            this.btnCIS.Location = new System.Drawing.Point(194, 0);
+            this.btnCIS.Name = "btnCIS";
+            this.btnCIS.Size = new System.Drawing.Size(260, 23);
+            this.btnCIS.TabIndex = 22;
+            this.btnCIS.Text = "Coordinación Ingresos propios y Servicios escolares";
+            this.btnCIS.UseVisualStyleBackColor = true;
+            this.btnCIS.Click += new System.EventHandler(this.coordinacionToolStripButton_Click);
+            // 
+            // btnITN
+            // 
+            this.btnITN.Location = new System.Drawing.Point(460, 0);
+            this.btnITN.Name = "btnITN";
+            this.btnITN.Size = new System.Drawing.Size(75, 23);
+            this.btnITN.TabIndex = 21;
+            this.btnITN.Text = "Intendencia";
+            this.btnITN.UseVisualStyleBackColor = true;
+            this.btnITN.Click += new System.EventHandler(this.intendenciaToolStripButton_Click);
             // 
             // label1
             // 
@@ -202,7 +272,7 @@
             this.tabInventario.Location = new System.Drawing.Point(0, 25);
             this.tabInventario.Name = "tabInventario";
             this.tabInventario.SelectedIndex = 0;
-            this.tabInventario.Size = new System.Drawing.Size(1183, 577);
+            this.tabInventario.Size = new System.Drawing.Size(1183, 969);
             this.tabInventario.TabIndex = 1;
             // 
             // tabAreasEditar
@@ -212,7 +282,7 @@
             this.tabAreasEditar.Location = new System.Drawing.Point(4, 24);
             this.tabAreasEditar.Name = "tabAreasEditar";
             this.tabAreasEditar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAreasEditar.Size = new System.Drawing.Size(1175, 549);
+            this.tabAreasEditar.Size = new System.Drawing.Size(1175, 941);
             this.tabAreasEditar.TabIndex = 5;
             this.tabAreasEditar.Text = "Áreas";
             this.tabAreasEditar.UseVisualStyleBackColor = true;
@@ -242,7 +312,7 @@
             this.inventarioDataGridView1.ReadOnly = true;
             this.inventarioDataGridView1.RowHeadersVisible = false;
             this.inventarioDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventarioDataGridView1.Size = new System.Drawing.Size(1169, 543);
+            this.inventarioDataGridView1.Size = new System.Drawing.Size(1169, 935);
             this.inventarioDataGridView1.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn29
@@ -345,18 +415,8 @@
             // 
             this.unidadMedidaTableAdapter.ClearBeforeFill = true;
             // 
-            // intendenciaToolStrip
-            // 
-            this.intendenciaToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.intendenciaToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.intendenciaToolStrip.Name = "intendenciaToolStrip";
-            this.intendenciaToolStrip.Size = new System.Drawing.Size(111, 25);
-            this.intendenciaToolStrip.TabIndex = 3;
-            this.intendenciaToolStrip.Text = "intendenciaToolStrip";
-            // 
             // paneBtnlAMT
             // 
-            this.paneBtnlAMT.Controls.Add(this.button1);
             this.paneBtnlAMT.Controls.Add(this.btnCancelar);
             this.paneBtnlAMT.Controls.Add(this.btnGuardar);
             this.paneBtnlAMT.Controls.Add(this.BtnEditar);
@@ -375,20 +435,10 @@
             this.paneBtnlAMT.Controls.Add(idArticuloLabel);
             this.paneBtnlAMT.Controls.Add(this.tbxId);
             this.paneBtnlAMT.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.paneBtnlAMT.Location = new System.Drawing.Point(0, 504);
+            this.paneBtnlAMT.Location = new System.Drawing.Point(0, 896);
             this.paneBtnlAMT.Name = "paneBtnlAMT";
             this.paneBtnlAMT.Size = new System.Drawing.Size(1183, 98);
             this.paneBtnlAMT.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(777, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "ITN";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.intendenciaToolStripButton_Click);
             // 
             // btnCancelar
             // 
@@ -498,9 +548,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1183, 602);
+            this.ClientSize = new System.Drawing.Size(1183, 994);
             this.Controls.Add(this.paneBtnlAMT);
-            this.Controls.Add(this.intendenciaToolStrip);
             this.Controls.Add(this.tabInventario);
             this.Controls.Add(this.panelTitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -524,7 +573,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericoCritico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericoNormal)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -555,7 +603,6 @@
         private SCIDataSetTableAdapters.AreasTableAdapter areasTableAdapter;
         private System.Windows.Forms.BindingSource unidadMedidaBindingSource;
         private SCIDataSetTableAdapters.UnidadMedidaTableAdapter unidadMedidaTableAdapter;
-        private System.Windows.Forms.ToolStrip intendenciaToolStrip;
         private System.Windows.Forms.Panel paneBtnlAMT;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
@@ -567,7 +614,12 @@
         private System.Windows.Forms.TextBox tbxArticulo;
         private System.Windows.Forms.ComboBox cbxArea;
         private System.Windows.Forms.TextBox tbxId;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnITN;
+        private System.Windows.Forms.Button btnCIS;
+        private System.Windows.Forms.Button btnAMT;
+        private System.Windows.Forms.Button btnLBC;
+        private System.Windows.Forms.Button btnSGR;
+        private System.Windows.Forms.Button btnMTN;
     }
 }
 

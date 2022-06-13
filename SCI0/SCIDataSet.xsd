@@ -118,6 +118,15 @@ SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida
               <Mapping SourceColumn="CantidadCritica" DataSetColumn="CantidadCritica" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="ConexiónSCI (Settings)" DbObjectName="SCI.dbo.Inventario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="AMT" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="AMT" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="AMT">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida, CantidadNormal, CantidadCritica FROM dbo.Inventario
+WHERE IdArea = 'AMT'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ConexiónSCI (Settings)" DbObjectName="SCI.dbo.Inventario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Coordinacion" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Coordinacion" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Coordinacion">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
@@ -149,6 +158,33 @@ WHERE IdArea = 'LBC'</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida, CantidadNormal, CantidadCritica FROM dbo.Inventario
 WHERE IdArea = 'ITN'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConexiónSCI (Settings)" DbObjectName="SCI.dbo.Inventario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="LBC" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="LBC" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="LBC">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida, CantidadNormal, CantidadCritica FROM dbo.Inventario
+WHERE IdArea = 'LBC'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConexiónSCI (Settings)" DbObjectName="SCI.dbo.Inventario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="MNT" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="MNT" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="MNT">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida, CantidadNormal, CantidadCritica FROM dbo.Inventario
+WHERE IdArea = 'MNT'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConexiónSCI (Settings)" DbObjectName="SCI.dbo.Inventario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="SGR" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="SGR" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="SGR">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdArea, IdArticulo, NombreArticulo, Descripcion, Cantidad, IdUnidadMedida, CantidadNormal, CantidadCritica FROM dbo.Inventario
+WHERE IdArea = 'SGR'</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>

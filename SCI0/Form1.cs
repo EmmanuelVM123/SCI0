@@ -57,8 +57,11 @@ namespace SCI0
                     this.cbxMedida.Enabled = false;
                     this.numericoNormal.Enabled = false;
                     this.numericoCritico.Enabled = false;
-                    //this.dataGridViewAMT.Enabled =false;
-                    
+                    this.btnCIS.Enabled = true;
+                    this.btnITN.Enabled = true;
+                    //this.button2.Show();
+
+
                     break;
                 case "Modificar":
                     this.BtnEditar.Enabled = false;
@@ -70,6 +73,9 @@ namespace SCI0
                     this.cbxMedida.Enabled = true;
                     this.numericoNormal.Enabled = true;
                     this.numericoCritico.Enabled = true;
+                    this.btnITN.Enabled = true;
+                    this.btnCIS.Enabled = false;
+                    //this.button2.Hide();
 
                     break;
             }
@@ -172,6 +178,56 @@ namespace SCI0
 
         }
 
-       
+        private void mNTToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.inventarioTableAdapter.MNT(this.sCIDataSet.Inventario);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void sGRToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.inventarioTableAdapter.SGR(this.sCIDataSet.Inventario);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void lBCToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.inventarioTableAdapter.LBC(this.sCIDataSet.Inventario);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void aMTToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.inventarioTableAdapter.AMT(this.sCIDataSet.Inventario);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
